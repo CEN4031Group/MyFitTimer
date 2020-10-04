@@ -7,6 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="StopWatchTracker.db" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="StopWatchTracker.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="DataLayer\" />
     <Folder Include="Models\" />
   </ItemGroup>
