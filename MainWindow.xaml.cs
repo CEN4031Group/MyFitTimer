@@ -17,6 +17,9 @@ using System.Diagnostics;
 using System.Timers;
 //using System.Timers.Timer;
 using System.IO;
+using System.Data.SqlClient;
+using System.Data;
+using Stopwatch0005.Data;
 
 namespace Stopwatch0005
 {
@@ -60,10 +63,25 @@ namespace Stopwatch0005
                 timer.Stop();
                 lbE.Content = watch.Elapsed.ToString(@"hh\:mm\:ss");
                 lstBxElapsed.Items.Add(watch.Elapsed.ToString(@"hh\:mm\:ss"));
+
+                string cn = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\mrtn1\\source\\repos\\Stopwatch0005\\Data\\StopW_DB.mdf;Integrated Security=True";
+                SqlConnection cconn = new SqlConnection(cn);
+                cconn.Open();
+
+                DataTable table = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT TOP 1 * FROM Time_Tracker", cconn);
+                adapter.Fill(table);
+
+                SqlCommand cmd_Command = new SqlCommand("INSERT INTO Time_Tracker([Elapsed_Time]) VALUES ('" + this.lbE.Content.ToString() + "')", cconn);
+
+                cmd_Command.ExecuteNonQuery();
+                MessageBox.Show("Saved Successfully!");
+                cconn.Close();
             }
 
-            watch.Reset();
             isRunning = false;
+
+            watch.Reset();
         }
     }
 }
