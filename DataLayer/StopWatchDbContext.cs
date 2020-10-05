@@ -1,10 +1,10 @@
-﻿using Final_4.Models;
+﻿using Stopwatch0005.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Sqlite;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Data.Entity.ModelConfiguration;
 
-namespace Final_4.DataLayer
+namespace Stopwatch0005.DataLayer
 {
     public class StopWatchDbContext : DbContext
     {

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Final_4.Models
+namespace Stopwatch0005.Models
 {
     public class StopWatchTracker
     {
