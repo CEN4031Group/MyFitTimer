@@ -12,7 +12,7 @@ namespace Stopwatch0005.UnitTest
         [TestMethod]
         public void AddToDb()
         {
-            var tracker = new StopWatchTracker(DateTime.Now);
+            var tracker = new StopWatchTracker(DateTime.Now.ToString());
             var ctx = new StopWatchDbContext();
             ctx.stopWatchTrackers.Add(tracker);
             ctx.SaveChanges();
@@ -25,7 +25,7 @@ namespace Stopwatch0005.UnitTest
         {
             var ctx = new StopWatchDbContext();
 
-            var newTracker = new StopWatchTracker(DateTime.Now);
+            var newTracker = new StopWatchTracker(DateTime.Now.ToString());
             ctx.stopWatchTrackers.Add(newTracker);
             ctx.SaveChanges();
 

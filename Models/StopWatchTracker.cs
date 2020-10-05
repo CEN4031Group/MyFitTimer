@@ -6,9 +6,9 @@ namespace Stopwatch0005.Models
 {
     public class StopWatchTracker
     {
-        public StopWatchTracker(DateTime _elapsedTime)
+        public StopWatchTracker(string _elapsedTime)
         {
-            ElapsedTime = _elapsedTime.ToString("dd/MM/yyyy hh:mm:ss.fff");
+            ElapsedTime = _elapsedTime;
             TimeCreated = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss.fff");
         }
 
