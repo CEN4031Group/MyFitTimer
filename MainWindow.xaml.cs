@@ -60,6 +60,12 @@ namespace Stopwatch0005
                 timer.Stop();
                 lbE.Content = watch.Elapsed.ToString(@"hh\:mm\:ss");
                 lstBxElapsed.Items.Add(watch.Elapsed.ToString(@"hh\:mm\:ss"));
+
+                var ctx = new Stopwatch0005.DataLayer.StopWatchDbContext();
+                var tracker = new Stopwatch0005.Models.StopWatchTracker(watch.Elapsed.ToString(@"hh\:mm\:ss"));
+
+                ctx.stopWatchTrackers.Add(tracker);
+                ctx.SaveChanges();
             }
 
             watch.Reset();
